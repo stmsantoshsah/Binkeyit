@@ -6,6 +6,7 @@ import morgan from "morgan";
 import helmet from 'helmet';
 import cors from 'cors'
 import connectDB from "./config/connectDB.js";
+import userRouter from "./route/user.route.js";
 const app = express();
 dotenv.config();
 app.use(cors({
@@ -25,10 +26,12 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((error) => {
         console.log(error)
     })
+
 app.get("/", (req, resp) => {
     resp.send("Mongodb Connected")
 })
 
+app.use("/api/user",userRouter)
 const PORT = process.env.PORT || 4000;
 
 connectDB().then(() => {
