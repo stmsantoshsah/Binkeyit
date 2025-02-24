@@ -7,7 +7,7 @@ const forgotPasswordTemplate = ({ name, otp }) => {
             <h3 style="background: #f4f4f4; padding: 10px; display: inline-block; border-radius: 5px;">${otp}</h3>
             <p>This OTP is valid for 10 minutes. If you did not request this, please ignore this email.</p>
             <p>Thanks,</p>
-            <p><strong>Your Company Name</strong></p>
+            <p><strong>Binkeyit</strong></p>
         </div>
     `
 };
