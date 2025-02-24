@@ -1,14 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import helmet from 'helmet';
 import cors from 'cors'
+import dotenv from "dotenv";
+dotenv.config();
 import connectDB from "./config/connectDB.js";
 import userRouter from "./route/user.route.js";
 const app = express();
-dotenv.config();
 app.use(cors({
     credential: true,
     origin: "process.env.FRONTEND_URL"
