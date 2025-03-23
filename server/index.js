@@ -10,9 +10,11 @@ import connectDB from "./config/connectDB.js";
 import userRouter from "./route/user.route.js";
 const app = express();
 app.use(cors({
-    credential: true,
-    origin: "process.env.FRONTEND_URL"
-}))
+    credentials: true,
+    origin: process.env.FRONTEND_URL, // Remove quotes
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan())

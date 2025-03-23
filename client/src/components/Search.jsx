@@ -13,7 +13,7 @@ const Search = () => {
         const isSearch = location.pathname === "/search"
         setIsSearchPage(isSearch)
     }, [location])
-    console.log(isSearchPage)
+    // console.log(isSearchPage)
     const redirectToSearchPage = () => {
         navigate("/search")
     }
