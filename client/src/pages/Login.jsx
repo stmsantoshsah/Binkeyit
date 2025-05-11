@@ -24,7 +24,7 @@ const Login = () => {
     })
   }
 
-  const valideValue = Object.values(data).every(el => el)
+  const validValue = Object.values(data).every(el => el)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,7 +37,9 @@ const Login = () => {
         toast.error(response.data.message)
       }
       if (response.data.success) {
-        toast.success(response.data.message)
+        toast.success(response.data.message);
+        localStorage.setItem('accessToken',response.data.data.accessToken)
+        localStorage.setItem('refreshToken',response.data.data.refreshToken)
         setData({
           email: "",
           password: "",
@@ -67,7 +69,7 @@ const Login = () => {
             </div>
             <Link to={"/forgot-password"} className='ms-auto hover:text-primary'>Forgot password ? </Link>
           </div>
-          <button disabled={!valideValue} className={`${valideValue ? "bg-green-800 hover:bg-green-700" : "bg-gray-500"} text-white py-2 rounded font-semibold cursor-pointer my-3 tracking-wide`}>Login</button>
+          <button disabled={!validValue} className={`${validValue ? "bg-green-800 hover:bg-green-700" : "bg-gray-500"} text-white py-2 rounded font-semibold cursor-pointer my-3 tracking-wide`}>Login</button>
         </form>
         <p>Don't have account ? <Link to="/register" className='font-semibold text-green-700 hover:text-green-800'>Register</Link> </p>
       </div>
